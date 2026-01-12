@@ -242,14 +242,14 @@
         }
 
         .home-img img {
-            width: 80%;
-            /* Adjust size */
-            max-width: 450px;
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 1/1;
             z-index: 2;
             border-radius: 50%;
-            /* Optional: if using a square generic placeholder */
-            /* If image is a cutout, remove border-radius */
             object-fit: cover;
+            border: 4px solid var(--accent-color);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
         }
 
         /* Abstract Red Background Circles */
@@ -261,19 +261,22 @@
         }
 
         .circle-1 {
-            width: 450px;
-            height: 450px;
+            width: 100%;
+            max-width: 420px;
+            aspect-ratio: 1/1;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            opacity: 1;
+            opacity: 0.8;
             /* Bright red circle behind head */
         }
 
         .circle-2 {
-            width: 200px;
-            height: 200px;
-            top: -50px;
+            width: 15vw;
+            height: 15vw;
+            max-width: 200px;
+            max-height: 200px;
+            top: -20px;
             right: 0;
             background: var(--dark-accent);
             opacity: 0.5;
@@ -281,10 +284,12 @@
         }
 
         .circle-3 {
-            width: 150px;
-            height: 150px;
-            bottom: -50px;
-            left: -50px;
+            width: 12vw;
+            height: 12vw;
+            max-width: 150px;
+            max-height: 150px;
+            bottom: -20px;
+            left: -20px;
             background: var(--dark-accent);
             opacity: 0.6;
             z-index: 0;
@@ -332,11 +337,13 @@
         }
 
         .about-img img {
-            width: 250px;
-            height: 250px;
+            width: 100%;
+            max-width: 280px;
+            aspect-ratio: 1/1;
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid var(--accent-color);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
         }
 
         /* --- Services Section --- */
@@ -611,12 +618,21 @@
             }
 
             .home-img img {
-                width: 90%;
+                max-width: 260px;
             }
 
             .circle-1 {
-                width: 280px;
-                height: 280px;
+                max-width: 280px;
+            }
+
+            .circle-2,
+            .circle-3 {
+                display: none;
+                /* Hide small decorative circles on very small screens to avoid clutter/overflow */
+            }
+
+            .about-img img {
+                max-width: 220px;
             }
         }
     </style>
@@ -656,14 +672,14 @@
             <div class="circle-bg circle-2"></div>
             <div class="circle-bg circle-3"></div>
             <!-- Placeholder for Sophia -->
-            <img src="WhatsApp Image 2026-01-12 at 14.52.23.jpeg" alt="Sophia Web Designer">
+            <img src="WhatsApp Image 2026-01-12 at 14.52.23.jpeg" alt="Kirubha Shankar">
         </div>
     </section>
 
     <!-- About Section -->
     <section class="about" id="about">
         <div class="about-img">
-            <img src="WhatsApp Image 2026-01-12 at 14.52.23.jpeg" alt="About Sophia">
+            <img src="WhatsApp Image 2026-01-12 at 14.52.23.jpeg" alt="About Kirubha">
         </div>
         <div class="about-content" style="padding-left: 2rem;">
             <h2 class="heading">About <span>Me</span></h2>
@@ -760,7 +776,7 @@
 
 
     <!-- Projects Section -->
-    <section class="portfolio" id="projects">
+    <!-- <section class="portfolio" id="projects">
         <h2 class="heading">Latest <span>Projects</span></h2>
 
         <div class="portfolio-container">
@@ -796,7 +812,7 @@
 
 
         </div>
-    </section>
+    </section> -->
 
 
 
@@ -811,11 +827,11 @@
                     THONDAMUTHUR, COIMBATORE - 641109</li>
             </ul>
 
-            <p class="contact-social-title">Find Me on</p>
+            <!-- <p class="contact-social-title">Find Me on</p> -->
             <div class="social-media" style="margin-bottom: 0;">
                 <!-- <a href="#"><i class="fa-brands fa-behance"></i></a> -->
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <!-- <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a> -->
                 <!-- <a href="#"><i class="fa-brands fa-pinterest"></i></a> -->
             </div>
         </div>
