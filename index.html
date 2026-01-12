@@ -304,10 +304,16 @@
         /* --- About Section --- */
         .about {
             background-color: #101010;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
 
         .about-content {
-            text-align: center;
+            flex: 1;
+            min-width: 300px;
         }
 
         .about-content h2 {
@@ -320,8 +326,9 @@
         }
 
         .about-img {
+            flex: 1;
+            min-width: 300px;
             text-align: center;
-            margin-bottom: 2rem;
         }
 
         .about-img img {
@@ -440,43 +447,64 @@
         }
 
         /* --- Contact Section --- */
-        .contact form {
-            max-width: 700px;
-            margin: 1rem auto;
-            text-align: center;
-            margin-bottom: 3rem;
+        /* --- Contact Section --- */
+        .contact {
+            padding-bottom: 4rem;
         }
 
-        .contact form .input-box {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .contact form .input-box input,
-        .contact form textarea {
-            width: 100%;
-            padding: 1.2rem;
-            font-size: 1rem;
-            color: var(--text-color);
+        .contact-card {
             background: #1a1a1a;
-            border-radius: 8px;
-            margin: .7rem 0;
-            border: 1px solid transparent;
-            font-family: var(--font-main);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid #1a1a1a;
+            transition: .4s;
+            max-width: 700px;
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .contact form .input-box input {
-            width: 49%;
-        }
-
-        .contact form .input-box input:focus,
-        .contact form textarea:focus {
+        .contact-card:hover {
             border-color: var(--accent-color);
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
         }
 
-        .contact form textarea {
-            resize: none;
+        .contact-info {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .contact-info li {
+            font-size: 1.1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .contact-info li i {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            min-width: 30px;
+            text-align: center;
+            margin-top: 4px;
+            /* Align icon with text top */
+        }
+
+        .contact-social-title {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            font-weight: 600;
         }
 
         /* --- Footer --- */
@@ -497,22 +525,17 @@
             }
 
             section {
-                padding: 50px 4%;
-                /* Add vertical padding for sections */
+                padding: 100px 4% 2rem;
             }
 
             .home {
-                grid-template-columns: 1fr;
-                /* Stack on smaller screens */
+                flex-direction: column-reverse;
                 text-align: center;
                 gap: 4rem;
-                padding-top: 100px;
-                /* Space for fixed header */
             }
 
             .home-content {
                 max-width: 100%;
-                margin: 0 auto;
             }
 
             .home-content h3 {
@@ -527,9 +550,14 @@
                 justify-content: center;
             }
 
-            .social-media {
-                justify-content: center;
-                display: flex;
+            .about {
+                flex-direction: column;
+                text-align: center;
+                padding: 100px 4%;
+            }
+
+            .about-content {
+                padding-left: 0 !important;
             }
 
             .circle-1 {
@@ -549,12 +577,12 @@
                 left: 0;
                 width: 100%;
                 padding: 1rem 4%;
-                background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(20, 0, 0, 0.9));
+                background: rgba(5, 5, 5, 0.95);
+                backdrop-filter: blur(10px);
                 border-top: 1px solid rgba(255, 255, 255, 0.1);
                 display: none;
-                /* Hidden by default */
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
             }
 
             .navbar.active {
@@ -563,33 +591,23 @@
 
             .navbar a {
                 display: block;
-                margin: 1.5rem 0;
+                margin: 1rem 0;
                 font-size: 1.2rem;
+                margin-left: 0;
             }
 
-            /* Hide Contact Button in nav flow for simpler mobile menu, or keep it */
             .btn-contact {
-                display: block;
-                margin: 1.5rem 0 1.5rem 40px;
-                /* Align with links */
-            }
-
-            .contact form .input-box input {
-                width: 100%;
+                margin: 1rem 0;
             }
         }
 
         @media (max-width: 450px) {
             html {
-                font-size: 80%;
+                font-size: 75%;
             }
 
             .home-content h1 {
                 font-size: 2.5rem;
-            }
-
-            .home-content h3 {
-                font-size: 1.8rem;
             }
 
             .home-img img {
@@ -618,6 +636,7 @@
             <a href="#home" class="active">Home</a>
             <a href="#about">About</a>
             <a href="#education">Education</a>
+            <a href="#experience">Experience</a>
             <a href="#service">Skills</a>
             <a href="#projects">Projects</a>
             <a href="#contact" class="btn-contact">Contact</a>
@@ -637,37 +656,64 @@
             <div class="circle-bg circle-2"></div>
             <div class="circle-bg circle-3"></div>
             <!-- Placeholder for Sophia -->
-            <img src="WhatsApp Image 2026-01-12 at 14.52.23.jpeg"
-                alt="Sophia Web Designer">
+            <img src="WhatsApp Image 2026-01-12 at 14.52.23.jpeg" alt="Sophia Web Designer">
         </div>
     </section>
 
     <!-- About Section -->
     <section class="about" id="about">
-        <div class="home-img about-img" style="flex: 1; display: flex; justify-content: center;">
-            <img src="WhatsApp Image 2026-01-12 at 14.52.23.jpeg"
-                alt="About Sophia">
+        <div class="about-img">
+            <img src="WhatsApp Image 2026-01-12 at 14.52.23.jpeg" alt="About Sophia">
         </div>
-        <div class="about-content" style="flex: 1; text-align: left; padding-left: 2rem;">
+        <div class="about-content" style="padding-left: 2rem;">
             <h2 class="heading">About <span>Me</span></h2>
             <h3>UI/UX DESIGNER!</h3>
             <p>I’m a UI/UX Developer passionate about creating intuitive, user-centered digital experiences. I combine
                 design thinking with clean development practices to build interfaces that are not only visually
                 appealing but also easy to use. I focus on understanding users, solving real problems, and translating
                 ideas into functional, engaging designs.</p>
-            <br>
-            <!-- <a href="#" class="btn">Read More</a> -->
         </div>
     </section>
 
     <section class="education" id="education">
+        <h2 class="heading">E<span>ducation</span></h2>
 
-        <div style="flex: 1; text-align: left; padding-left: 2rem;">
-            <h2 class="heading">E<span>ducation</span></h2>
-            <h3>SCHOOL - ISHA VIDHYA</h3>
-            <h3>COLLEGE - Bachelor of Technology - IT (CURRENT)</h3>
-            <br>
-            <!-- <a href="#" class="btn">Read More</a> -->
+        <div class="services-container">
+            <div class="service-box">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h3>Academic Details</h3>
+                <p>SCHOOL - ISHA VIDHYA</p>
+                <p>COLLEGE - Bachelor of Technology - IT (CURRENT)</p>
+            </div>
+
+            <div class="service-box">
+                <i class="fa-solid fa-language"></i>
+                <h3>Languages</h3>
+                <p>TAMIL</p>
+                <p>ENGLISH</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="experience" id="experience">
+        <h2 class="heading">Ex<span>perience</span></h2>
+
+        <div class="services-container">
+            <div class="service-box">
+                <i class="fa-solid fa-briefcase"></i>
+                <h3>UI/UX Intern</h3>
+                <p><strong>ATS</strong> | 2 WEEKS</p>
+                <p>Worked on creating user-centric designs, wireframes, and prototypes. Collaborated with the
+                    development
+                    team to implement interactive UI components.</p>
+            </div>
+            <div class="service-box">
+                <i class="fa-solid fa-briefcase"></i>
+                <h3>Full Stack Intern</h3>
+                <p><strong>MIST SOLUTIONS</strong> | 1 MONTH</p>
+                <p>Worked as a full stack developer(ASSIST).</p>
+            </div>
+
         </div>
     </section>
 
@@ -705,24 +751,14 @@
                 <p>CRITICAL THINKING AND APTITUDE</p>
                 <!-- <a href="#" class="btn" style="padding: 10px 20px; font-size: 0.8rem; margin-top: 1rem;">Read More</a> -->
             </div>
-            
+
         </div>
     </section>
 
 
 
 
-     <section class="services" id="service">
-         <div class="services-container">
-            <div class="service-box">
-                <i class="fa-solid fa-chart-bar"></i>
-                <h3>LANGUAGES</h3>
-                <p>TAMIL</p>
-                <p>ENGLISH</p>
-                <!-- <a href="#" class="btn" style="padding: 10px 20px; font-size: 0.8rem; margin-top: 1rem;">Read More</a> -->
-            </div>
-            </div>
-            </section>
+
     <!-- Projects Section -->
     <section class="portfolio" id="projects">
         <h2 class="heading">Latest <span>Projects</span></h2>
@@ -758,40 +794,32 @@
                 </div>
             </div>
 
-            
+
         </div>
     </section>
 
 
-     
+
     <section class="contact" id="contact">
-         <h2 class="heading">Contact <span>Me!</span></h2>
-        <pre>
+        <h2 class="heading">Contact <span>Me!</span></h2>
 
-
-        </pre>
-
-         <div class="services-container">
-            <div>
-                <ul>
-                <li><i class="fa-solid fa-mobile"></i>  +91 63826 10647</li>
+        <div class="contact-card">
+            <ul class="contact-info">
+                <li><i class="fa-solid fa-mobile"></i> +91 63826 10647</li>
                 <li><i class="fa-solid fa-envelope"></i> kirubhas09@gmail.com</li>
-                <li><i class="fa-solid fa-location-dot"></i> 5/23 C, VARADHARAJAPURAM STREET KULATHUPALYAM ROAD, THONDAMUTHUR, COIMBATORE - 641109</li>
+                <li><i class="fa-solid fa-location-dot"></i> 5/23 C, VARADHARAJAPURAM STREET, KULATHUPALYAM ROAD,
+                    THONDAMUTHUR, COIMBATORE - 641109</li>
             </ul>
-                <!-- <a href="#" class="btn" style="padding: 10px 20px; font-size: 0.8rem; margin-top: 1rem;">Read More</a> -->
-            </div>
-            
-    
-            <pre><p style="font-size: 1.5rem; margin-bottom: 20px; color: #fff;">                                 Find Me on</p></pre>
-            <div class="social-media" style="justify-content: center; display: flex;">
+
+            <p class="contact-social-title">Find Me on</p>
+            <div class="social-media" style="margin-bottom: 0;">
                 <!-- <a href="#"><i class="fa-brands fa-behance"></i></a> -->
                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
                 <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
                 <!-- <a href="#"><i class="fa-brands fa-pinterest"></i></a> -->
             </div>
-            
-      </div>
-            </section>
+        </div>
+    </section>
     <!-- Contact Section -->
 
     <!-- Footer -->
