@@ -569,7 +569,7 @@
 
             .circle-1 {
                 width: 350px;
-                height: 350px;
+                height: auto;
             }
         }
 
@@ -625,10 +625,22 @@
                 max-width: 280px;
             }
 
-            .circle-2,
+            .circle-2 {
+                display: block;
+                width: 20vw;
+                height: auto;
+                aspect-ratio: 1/1;
+                top: -10vw;
+                right: -5vw;
+            }
+
             .circle-3 {
-                display: none;
-                /* Hide small decorative circles on very small screens to avoid clutter/overflow */
+                display: block;
+                width: 15vw;
+                height: auto;
+                aspect-ratio: 1/1;
+                bottom: -5vw;
+                left: -10vw;
             }
 
             .about-img img {
